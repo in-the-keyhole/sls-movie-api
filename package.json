@@ -1,0 +1,33 @@
+{
+  "name": "sls-movie-api",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "offline:aws": "serverless offline start --config serverless-aws.yml --httpPort 4000",
+    "deploy:aws": "serverless deploy --config serverless-aws.yml",
+    "remove:aws": "serverless remove --config serverless-aws.yml",
+    "deploy:azure": "serverless deploy --config serverless-azure.yml",
+    "remove:azure": "serverless remove --config serverless-azure.yml"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.2",
+    "@types/mocha": "^9.0.0",
+    "@types/webpack-env": "^1.16.2",
+    "jest": "^27.3.1",
+    "serverless-domain-manager": "^5.2.0",
+    "serverless-offline": "^8.2.0",
+    "serverless-webpack": "^5.5.4",
+    "ts-jest": "^27.0.7",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.4.4",
+    "webpack": "^5.55.0",
+    "webpack-node-externals": "^3.0.0",
+    "serverless-azure-functions": "^2.1.3"
+  },
+  "dependencies": {
+    "apollo-server": "^3.5.0",
+    "apollo-server-azure-functions": "^3.5.0",
+    "apollo-server-lambda": "^3.5.0",
+    "graphql": "^16.0.1"
+  }
+}
