@@ -8,11 +8,12 @@ provider:
   region: ${env:AWS_REGION}
   lambdaHashingVersion: '20201221'
   logRetentionInDays: ${env:LOG_RETENTION_DAYS}
+  stage: ${opt:stage, 'dev'}
   environment:
 
 functions:
   graphql:
-    handler: src/apollo-server.graphqlHandler
+    handler: src/apollo-server-lambda.graphqlHandler
     events:
       - http:
           path: graphql

@@ -1,5 +1,7 @@
 service: sls-movie-api
 
+configValidationMode: off
+
 provider:
   name: azure
   resourceGroup: sls-movie-api
@@ -9,20 +11,20 @@ provider:
 
 functions:
   graphql:
-    handler: src/apollo-server.graphqlHandler
+    handler: src/apollo-server-azure-functions.graphqlHandler
     events:
       - http:
-          path: graphql
           method: POST
-        authLevel: anonymous
+        x-azure-settings:
+          authLevel: anonymous
       - http: true
         x-azure-settings:
           direction: out
           name: $return
 
 plugins:
-  - serverless-azure-functions
   - serverless-webpack
+  - serverless-azure-functions
 
 custom:
   webpack:

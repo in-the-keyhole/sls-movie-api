@@ -1,5 +1,5 @@
-// import { ApolloServer } from 'apollo-server-lambda';
-import { ApolloServer } from 'apollo-server-azure-functions';
+
+import { ApolloServer } from 'apollo-server-lambda';
 import { environment } from './environment';
 
 import { typeDefs } from './schema';
