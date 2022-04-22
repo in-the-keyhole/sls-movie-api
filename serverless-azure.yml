@@ -36,17 +36,17 @@ functions:
           displayName: GraphQL
     events:
       - http:
-          path: graphql
           method: POST
-        authLevel: anonymous
+        x-azure-settings:
+          authLevel: anonymous
       - http: true
         x-azure-settings:
           direction: out
           name: $return
 
 plugins:
-  - serverless-azure-functions
   - serverless-webpack
+  - serverless-azure-functions
 
 custom:
   webpack:
