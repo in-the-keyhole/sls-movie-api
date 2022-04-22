@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "offline:aws": "serverless offline start --config serverless-aws.yml --httpPort 4000",
+    "start": "yarn run start:aws",
+    "start:aws": "serverless offline start --config serverless-aws.yml --httpPort 4000  --noPrependStageInUrl",
     "deploy:aws": "serverless deploy --config serverless-aws.yml",
     "remove:aws": "serverless remove --config serverless-aws.yml",
     "deploy:azure": "serverless deploy --config serverless-azure.yml",
@@ -15,7 +16,7 @@
     "@types/webpack-env": "^1.16.2",
     "jest": "^27.3.1",
     "serverless-domain-manager": "^5.2.0",
-    "serverless-offline": "^8.2.0",
+    "serverless-offline": "^8.3.1",
     "serverless-webpack": "^5.5.4",
     "ts-jest": "^27.0.7",
     "ts-loader": "^9.2.6",

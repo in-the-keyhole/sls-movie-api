@@ -2,7 +2,7 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.194.0/containers/typescript-node
 {
   "name": "Node.js & TypeScript",
-  // "runArgs": ["--env-file", "${localWorkspaceFolder}/.devcontainer/.env"],
+  "runArgs": ["--env-file", ".devcontainer/.env"],
   "build": {
     "dockerfile": "Dockerfile",
     // Update 'VARIANT' to pick a Node version: 12, 14, 16

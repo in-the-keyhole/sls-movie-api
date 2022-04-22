@@ -1,15 +1,39 @@
 service: sls-movie-api
 
+configValidationMode: off
+
 provider:
   name: azure
   resourceGroup: sls-movie-api
-  location: East US
+  location: ${env:AZURE_LOCATION}
   runtime: nodejs14
-  apim: true
+  apim:
+    apis:
+      - name: movies
+        displayName: GraphQL Movie API
+        description: The GraphQL Movie API
+        protocols:
+          - https
+        path: movies
+        # tags:
+        #   - tag1
+        #   - tag2
+        subscriptionRequired: false
+        authorization: none
+    backends:
+      - name: movie-backend
+        url: graphql
 
 functions:
   graphql:
     handler: src/apollo-server.graphqlHandler
+    apim:
+      api: movies
+      backend: movie-backend
+      operations:
+        - method: post
+          urlTemplate: /
+          displayName: GraphQL
     events:
       - http:
           path: graphql
