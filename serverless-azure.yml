@@ -26,7 +26,7 @@ provider:
 
 functions:
   graphql:
-    handler: src/apollo-server.graphqlHandler
+    handler: src/apollo-server-azure-functions.graphqlHandler
     apim:
       api: movies
       backend: movie-backend

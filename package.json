@@ -7,6 +7,7 @@
     "start:aws": "serverless offline start --config serverless-aws.yml --httpPort 4000  --noPrependStageInUrl",
     "deploy:aws": "serverless deploy --config serverless-aws.yml",
     "remove:aws": "serverless remove --config serverless-aws.yml",
+    "start:azure": "serverless offline --config serverless-azure.yml",
     "deploy:azure": "serverless deploy --config serverless-azure.yml",
     "remove:azure": "serverless remove --config serverless-azure.yml"
   },
@@ -15,6 +16,7 @@
     "@types/mocha": "^9.0.0",
     "@types/webpack-env": "^1.16.2",
     "jest": "^27.3.1",
+    "serverless-azure-functions": "^2.1.3",
     "serverless-domain-manager": "^5.2.0",
     "serverless-offline": "^8.3.1",
     "serverless-webpack": "^5.5.4",
