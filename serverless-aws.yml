@@ -37,3 +37,4 @@ custom:
     createRoute53Record: true
   webpack:
     includeModules: true
+    excludeFiles: src/apollo-server-azure-functions.ts

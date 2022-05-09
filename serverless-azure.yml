@@ -51,3 +51,5 @@ plugins:
 custom:
   webpack:
     includeModules: true
+    packager: 'npm' # Packager that will be used to package your external modules
+    excludeFiles: src/apollo-server-lambda.ts
