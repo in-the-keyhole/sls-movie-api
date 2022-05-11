@@ -4,12 +4,12 @@
   "private": true,
   "scripts": {
     "start": "yarn run start:aws",
-    "start:aws": "serverless offline start --config serverless-aws.yml --httpPort 4000  --noPrependStageInUrl",
-    "deploy:aws": "serverless deploy --config serverless-aws.yml",
-    "undeploy:aws": "serverless remove --config serverless-aws.yml",
-    "start:azure": "serverless offline --config serverless-azure.yml",
-    "deploy:azure": "serverless deploy --config serverless-azure.yml",
-    "undeploy:azure": "serverless remove --config serverless-azure.yml"
+    "start:aws": "sls offline start --config serverless-aws.yml --httpPort 4000  --noPrependStageInUrl",
+    "deploy:aws": "sls deploy --config serverless-aws.yml",
+    "undeploy:aws": "sls remove --config serverless-aws.yml",
+    "start:azure": "sls offline --config serverless-azure.yml",
+    "deploy:azure": "sls deploy --config serverless-azure.yml",
+    "undeploy:azure": "sls remove --config serverless-azure.yml"
   },
   "devDependencies": {
     "@types/jest": "^27.0.2",
@@ -33,7 +33,6 @@
     "apollo-server-azure-functions": "^3.6.7",
     "apollo-server-lambda": "^3.6.7",
     "graphql": "^16.3.0",
-    "pg": "^8.7.3",
-    "uuid": "^8.3.2"
+    "pg": "^8.7.3"
   }
 }
