@@ -5,7 +5,6 @@ import { environment } from './environment';
 import { typeDefs } from './schema';
 import resolvers from './resolvers';
 
-
 const server = new ApolloServer({
   resolvers,
   typeDefs,

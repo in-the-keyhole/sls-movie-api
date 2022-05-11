@@ -8,6 +8,14 @@ export const typeDefs = gql`
     posterPath: String
   }
 
+  type Status {
+    message: String
+  }
+
+  type Mutation {
+    resetData: Status
+  }
+
   type Query {
     nowPlaying: [Movie]
     movie(id: ID!): Movie
