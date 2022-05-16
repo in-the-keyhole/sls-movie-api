@@ -16,7 +16,11 @@ module.exports = {
         test: /\.graphql$/,
         exclude: /node_modules/,
         loader: 'graphql-tag/loader',
-      }
+      },
+      {
+        test: /\.sql$/i,
+        loader: 'raw-loader',
+      },
     ],
   },
   node: false,

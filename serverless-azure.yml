@@ -7,6 +7,20 @@ provider:
   resourceGroup: sls-movie-api
   location: ${env:AZURE_LOCATION}
   runtime: nodejs14
+  armTemplate:
+    file: resources/azure/azure-resources.json
+    # parameters: ${file(./resources/azure/azure-resources.parameters.json)}
+    parameters:
+      administratorLoginPassword:
+        value: ${self:custom.PASSWORD}
+      location:
+        value: ${env:AZURE_LOCATION}
+  environment:
+    PGHOST: ${self:custom.POSTGRESQL.HOST}
+    PGPORT: ${self:custom.POSTGRESQL.PORT}
+    PGDATABASE: ${self:custom.DB_NAME}
+    PGUSER: ${self:custom.USERNAME}
+    PGPASSWORD: ${self:custom.PASSWORD}
   apim:
     apis:
       - name: movies
@@ -51,5 +65,13 @@ plugins:
 custom:
   webpack:
     includeModules: true
-    packager: 'npm' # Packager that will be used to package your external modules
+    packager: 'yarn'
     excludeFiles: src/apollo-server-lambda.ts
+    keepOutputDirectory: true
+
+  DB_NAME: ${env:DATABASE_NAME}
+  USERNAME: ${env:DATABASE_USERNAME}
+  PASSWORD: ${env:DATABASE_PASSWORD}
+  POSTGRESQL:
+    HOST: ${env:POSTGRESQL_HOST}
+    PORT: ${env:POSTGRESQL_PORT}

@@ -1,9 +1,11 @@
 import { Pool } from "pg";
-import fs from 'fs';
+import sql from './init_database.sql';
+
 
 export const pool = new Pool({ // uses ENV vars
     min: 1,
-    max: 5
+    max: 5,
+    ssl: true
 })
 
 export const resetData = async (): Promise<any> => {
@@ -20,7 +22,6 @@ export const resetData = async (): Promise<any> => {
 
     const { rows } = await pool.query(`select count(*) from movies`);
     if (+rows[0].count === 0) {
-        var sql = fs.readFileSync('init_database.sql').toString();
         await pool.query(sql);
     }
     return { message: "Success" }

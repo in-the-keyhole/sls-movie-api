@@ -55,11 +55,13 @@ custom:
   webpack:
     includeModules: true
     excludeFiles: src/apollo-server-azure-functions.ts
+    packager: 'yarn'
+    keepOutputDirectory: true
   export-env:
     filename: .env
     overwrite: false
     enableOffline: true
-  DB_NAME: movies
+  DB_NAME: ${env:DATABASE_NAME}
   USERNAME: ${env:DATABASE_USERNAME}
   PASSWORD: ${env:DATABASE_PASSWORD}
   POSTGRESQL:
@@ -72,5 +74,5 @@ custom:
 
 resources:
   Resources:
-    ServerlessSecurityGroup: ${file(./resources/ServerlessSecurityGroup.yml)}
-    PostgresRDSInstance: ${file(./resources/PostgresRDSInstance.yml)}
+    ServerlessSecurityGroup: ${file(./resources/aws/ServerlessSecurityGroup.yml)}
+    PostgresRDSInstance: ${file(./resources/aws/PostgresRDSInstance.yml)}
