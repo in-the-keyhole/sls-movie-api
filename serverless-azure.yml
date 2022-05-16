@@ -12,15 +12,15 @@ provider:
     # parameters: ${file(./resources/azure/azure-resources.parameters.json)}
     parameters:
       administratorLoginPassword:
-        value: ${self:custom.PASSWORD}
+        value: ${env:DATABASE_PASSWORD}
       location:
         value: ${env:AZURE_LOCATION}
   environment:
-    PGHOST: ${self:custom.POSTGRESQL.HOST}
-    PGPORT: ${self:custom.POSTGRESQL.PORT}
-    PGDATABASE: ${self:custom.DB_NAME}
-    PGUSER: ${self:custom.USERNAME}
-    PGPASSWORD: ${self:custom.PASSWORD}
+    PGHOST: ${env:AZURE_POSTGRESQL_HOST}
+    PGPORT: ${env:POSTGRESQL_PORT}
+    PGDATABASE: ${env:DATABASE_NAME}
+    PGUSER: ${env:DATABASE_USERNAME}
+    PGPASSWORD: ${env:DATABASE_PASSWORD}
   apim:
     apis:
       - name: movies
@@ -68,10 +68,3 @@ custom:
     packager: 'yarn'
     excludeFiles: src/apollo-server-lambda.ts
     keepOutputDirectory: true
-
-  DB_NAME: ${env:DATABASE_NAME}
-  USERNAME: ${env:DATABASE_USERNAME}
-  PASSWORD: ${env:DATABASE_PASSWORD}
-  POSTGRESQL:
-    HOST: ${env:AZURE_POSTGRESQL_HOST}
-    PORT: ${env:POSTGRESQL_PORT}

@@ -1,9 +1,10 @@
 Type: 'AWS::RDS::DBInstance'
 Properties:
   DBInstanceClass: 'db.t3.micro'
+  DBInstanceIdentifier: 'sls-movie-api'
   AllocatedStorage: 5
   Engine: 'postgres'
-  DBName: ${self:custom.DB_NAME}
+  DBName: ${env:DATABASE_NAME}
   MasterUsername: ${env:DATABASE_USERNAME}
   MasterUserPassword: ${env:DATABASE_PASSWORD}
   VPCSecurityGroups:
