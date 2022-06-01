@@ -3,8 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "administratorLogin": {
-      "type": "String",
-      "defaultValue": "serverless"
+      "type": "String"
     },
     "administratorLoginPassword": {
       "type": "SecureString"

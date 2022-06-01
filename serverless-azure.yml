@@ -7,10 +7,13 @@ provider:
   resourceGroup: sls-movie-api
   location: ${env:AZURE_LOCATION}
   runtime: nodejs14
+  # RUN ONCE, THEN COMMENT THIS OUT AND RUN AGAIN.  NEED TO RESEARCH THIS MORE
   armTemplate:
     file: resources/azure/azure-resources.json
     # parameters: ${file(./resources/azure/azure-resources.parameters.json)}
     parameters:
+      administratorLogin:
+        value: ${env:DATABASE_USERNAME}
       administratorLoginPassword:
         value: ${env:DATABASE_PASSWORD}
       location:
