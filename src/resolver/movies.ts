@@ -1,4 +1,5 @@
-import { getMovies, getMovie, Movie } from './data-access';
+// import { getMovies, getMovie, Movie } from './data-access';
+import { getMovies, getMovie, Movie } from './rest-access';
 
 export const nowPlaying = async (_: any) => {
     return await getMovies();

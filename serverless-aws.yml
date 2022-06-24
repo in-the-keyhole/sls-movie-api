@@ -1,20 +1,22 @@
 service: sls-movie-api
 
-variablesResolutionMode: '20210326'
+# variablesResolutionMode: '20210326'
 
 provider:
   name: aws
   runtime: nodejs14.x
   region: ${env:AWS_REGION}
-  lambdaHashingVersion: '20201221'
+  # lambdaHashingVersion: '20201221'
   logRetentionInDays: ${env:LOG_RETENTION_DAYS}
   stage: ${opt:stage, 'dev'}
   environment:
-    PGHOST: ${self:custom.POSTGRESQL.HOST}
-    PGPORT: ${self:custom.POSTGRESQL.PORT}
-    PGDATABASE: ${env:DATABASE_NAME}
-    PGUSER: ${env:DATABASE_USERNAME}
-    PGPASSWORD: ${env:DATABASE_PASSWORD}
+    TMDB_BASE_URL: ${env:TMDB_BASE_URL}
+    TMDB_API_KEY: ${env:TMDB_API_KEY}
+    # PGHOST: ${self:custom.POSTGRESQL.HOST}
+    # PGPORT: ${self:custom.POSTGRESQL.PORT}
+    # PGDATABASE: ${env:DATABASE_NAME}
+    # PGUSER: ${env:DATABASE_USERNAME}
+    # PGPASSWORD: ${env:DATABASE_PASSWORD}
 
 functions:
   graphql:
@@ -33,7 +35,7 @@ plugins:
   - serverless-webpack
   - serverless-offline
   - serverless-domain-manager
-  - serverless-export-env
+  # - serverless-export-env
 
 custom:
   customDomain:
@@ -50,15 +52,14 @@ custom:
     filename: .env
     overwrite: false
     enableOffline: true
-  POSTGRESQL:
-    HOST:
-      Fn::GetAtt: [PostgresRDSInstance, Endpoint.Address]
-      # ${env:AWS_POSTGRESQL_HOST}
-    PORT:
-      Fn::GetAtt: [PostgresRDSInstance, Endpoint.Port]
-      # ${env:POSTGRESQL_PORT}
-
-resources:
-  Resources:
-    ServerlessSecurityGroup: ${file(./resources/aws/ServerlessSecurityGroup.yml)}
-    PostgresRDSInstance: ${file(./resources/aws/PostgresRDSInstance.yml)}
+  # POSTGRESQL:
+  #   HOST:
+  #     Fn::GetAtt: [PostgresRDSInstance, Endpoint.Address]
+  #     # ${env:AWS_POSTGRESQL_HOST}
+  #   PORT:
+  #     Fn::GetAtt: [PostgresRDSInstance, Endpoint.Port]
+  #     # ${env:POSTGRESQL_PORT}
+# resources:
+#   Resources:
+#     ServerlessSecurityGroup: ${file(./resources/aws/ServerlessSecurityGroup.yml)}
+#     PostgresRDSInstance: ${file(./resources/aws/PostgresRDSInstance.yml)}

@@ -1,4 +1,4 @@
-import { resetData } from "./resolver/data-access";
+// import { resetData } from "./resolver/data-access";
 import { nowPlaying, movieById } from "./resolver/movies";
 
 export default {
@@ -6,7 +6,16 @@ export default {
     nowPlaying: nowPlaying,
     movie: movieById
   },
-  Mutation: {
-    resetData: resetData
-  }
+  Movie: {
+    posterPath: (
+      parent: any,
+      args: any,
+      context: any
+    ): String => {
+      return `https://www.themoviedb.org/t/p/w500${parent.poster_path}`
+    },
+  },
+  // Mutation: {
+  //   resetData: resetData
+  // }
 };
