@@ -33,7 +33,9 @@
     "apollo-server": "^3.6.7",
     "apollo-server-azure-functions": "^3.6.7",
     "apollo-server-lambda": "^3.6.7",
+    "axios": "^0.27.2",
     "graphql": "^16.3.0",
-    "pg": "^8.7.3"
+    "pg": "^8.7.3",
+    "pino": "^8.1.0"
   }
 }
