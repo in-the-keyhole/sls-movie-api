@@ -21,10 +21,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      #      - name: Use Node.js nodejs14.x
-      #        uses: actions/setup-node@v3
-      #        with:
-      #        node-version: 14.x
+#      - name: Use Node.js nodejs14.x
+#        uses: actions/setup-node@v3
+#        with:
+#        node-version: 14.x
 
       - name: run yarn
         run: yarn
+
+#      - name: run deploy
+#        run: Deploy
+#          sls deploy --config serverless-aws.yml
