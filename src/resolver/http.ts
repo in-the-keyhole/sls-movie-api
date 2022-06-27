@@ -1,7 +1,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { environment } from '../environment';
 import { logger } from '../logger';
-// import { inspect } from 'util';
+
 
 enum StatusCode {
     Unauthorized = 401,
@@ -42,7 +42,6 @@ export class Http {
 
         http.interceptors.response.use(
             (response) => {
-                // logger.debug('Axios Response -> %o', inspect(response));
                 return response;
             },
             (error) => {
@@ -72,41 +71,6 @@ export class Http {
         }
         return this.http.get<T, R>(url, config);
     }
-
-    // async post<T = any, R = AxiosResponse<T>>(
-    //     url: string,
-    //     modifyHeadersCallback?: any,
-    //     body?: any,
-    //     config?: AxiosRequestConfig
-    // ): Promise<R> {
-    //     if (modifyHeadersCallback) {
-    //         await modifyHeadersCallback(this.http);
-    //     }
-    //     return this.http.post<T, R>(url, body, config);
-    // }
-
-    // async patch<T = any, R = AxiosResponse<T>>(
-    //     url: string,
-    //     modifyHeadersCallback: any,
-    //     body: any,
-    //     config?: AxiosRequestConfig
-    // ): Promise<R> {
-    //     if (modifyHeadersCallback) {
-    //         await modifyHeadersCallback(this.http);
-    //     }
-    //     return this.http.patch<T, R>(url, body, config);
-    // }
-
-    // async delete<T = any, R = AxiosResponse<T>>(
-    //     url: string,
-    //     modifyHeadersCallback?: any,
-    //     config?: AxiosRequestConfig
-    // ): Promise<R> {
-    //     if (modifyHeadersCallback) {
-    //         await modifyHeadersCallback(this.http);
-    //     }
-    //     return this.http.delete<T, R>(url, config);
-    // }
 
     // Handle global app errors
     // We can handle generic app errors depending on the status code

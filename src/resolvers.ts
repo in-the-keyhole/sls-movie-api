@@ -1,4 +1,3 @@
-// import { resetData } from "./resolver/data-access";
 import { nowPlaying, movieById } from "./resolver/movies";
 
 export default {
@@ -15,7 +14,5 @@ export default {
       return `https://www.themoviedb.org/t/p/w500${parent.poster_path}`
     },
   },
-  // Mutation: {
-  //   resetData: resetData
-  // }
+  
 };
