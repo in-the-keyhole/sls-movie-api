@@ -15,7 +15,7 @@ env:
 jobs:
   deploy_serverless:
     name: deploy
-    # The type of runner that the job will run on
+
     runs-on: ubuntu-latest
 
     steps:
@@ -24,11 +24,10 @@ jobs:
       - name: Use Node.js nodejs14.x
         uses: actions/setup-node@v3
         with:
-          node-version: nodejs14.x
-
-      - name: Run yarn
+          node-version: 14.x
         run: yarn
-
-      - name: Run a multi-line script
-        run: Deploy
-          sls deploy --config serverless-aws.yml
+#      - name: Run yarn
+#        run: yarn
+#      - name: Run a multi-line script
+#        run: Deploy
+#          sls deploy --config serverless-aws.yml
