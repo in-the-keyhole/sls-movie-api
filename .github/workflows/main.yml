@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: ['rest']
+    branches: ['main']
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -25,6 +25,8 @@ jobs:
 #        uses: actions/setup-node@v3
 #        with:
 #        node-version: 14.x
+
+      - run: node -v
 
       - name: run yarn
         run: yarn
