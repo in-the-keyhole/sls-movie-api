@@ -12,7 +12,7 @@ provider:
   environment:
     TMDB_BASE_URL: ${env:TMDB_BASE_URL}
     TMDB_API_KEY: ${env:TMDB_API_KEY}
-   
+
 functions:
   graphql:
     handler: src/apollo-server-lambda.graphqlHandler
@@ -33,11 +33,11 @@ plugins:
   # - serverless-export-env
 
 custom:
-  customDomain:
-    domainName: ${env:DOMAIN_NAME}
-    certificateName: ${env:CERTIFICATE_NAME}
-    basePath: ''
-    createRoute53Record: true
+  # customDomain:
+  #   domainName: ${env:DOMAIN_NAME}
+  #   certificateName: ${env:CERTIFICATE_NAME}
+  #   basePath: ''
+  #   createRoute53Record: true
   webpack:
     includeModules: true
     excludeFiles: src/apollo-server-azure-functions.ts
@@ -47,4 +47,3 @@ custom:
     filename: .env
     overwrite: false
     enableOffline: true
-  
