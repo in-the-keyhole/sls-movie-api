@@ -28,10 +28,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - run: node -v
-
       - name: Install Dependencies
         run: yarn
+        # cache node_modules
 
       - name: Deploy to AWS
         uses: serverless/github-action@v3.1

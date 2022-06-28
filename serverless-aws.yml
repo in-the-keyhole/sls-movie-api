@@ -29,8 +29,7 @@ functions:
 plugins:
   - serverless-webpack
   - serverless-offline
-  - serverless-domain-manager
-  # - serverless-export-env
+  # - serverless-domain-manager
 
 custom:
   # customDomain:
