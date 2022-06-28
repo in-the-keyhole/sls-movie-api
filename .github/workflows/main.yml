@@ -40,9 +40,9 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: us-east-1
-          # LOG_RETENTION_DAYS: 1
-          # TMDB_BASE_URL: https://api.themoviedb.org/3
-          # TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+          LOG_RETENTION_DAYS: 1
+          TMDB_BASE_URL: https://api.themoviedb.org/3
+          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
           DOMAIN_NAME: movies.keyhole.institute
           CERTIFICATE_NAME: keyhole.institute
 
@@ -57,5 +57,5 @@ jobs:
           LOG_RETENTION_DAYS: 1
           TMDB_BASE_URL: https://api.themoviedb.org/3
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
-          # DOMAIN_NAME: movies.keyhole.institute
-          # CERTIFICATE_NAME: keyhole.institute
+          DOMAIN_NAME: movies.keyhole.institute
+          CERTIFICATE_NAME: keyhole.institute
