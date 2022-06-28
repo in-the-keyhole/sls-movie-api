@@ -2,7 +2,7 @@ name: Deploy to AWS
 
 on:
   push:
-    branches: ['main']
+    branches: ['rest']
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -31,31 +31,3 @@ jobs:
 
       - name: Install Dependencies
         run: yarn
-
-      - name: Create Custom Domain
-        uses: serverless/github-action@v3.1
-        with:
-          args: create_domain --config serverless-aws.yml
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: us-east-1
-          LOG_RETENTION_DAYS: 1
-          TMDB_BASE_URL: https://api.themoviedb.org/3
-          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
-          DOMAIN_NAME: movies.keyhole.institute
-          CERTIFICATE_NAME: keyhole.institute
-
-      - name: Deploy to AWS
-        uses: serverless/github-action@v3.1
-        with:
-          args: deploy --config serverless-aws.yml --stage prod
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: us-east-1
-          LOG_RETENTION_DAYS: 1
-          TMDB_BASE_URL: https://api.themoviedb.org/3
-          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
-          DOMAIN_NAME: movies.keyhole.institute
-          CERTIFICATE_NAME: keyhole.institute
