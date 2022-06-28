@@ -1,4 +1,4 @@
-name: CI
+name: Deploy to AWS
 
 on:
   push:
@@ -27,10 +27,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
 
       - name: Install Dependencies
         run: yarn
-        # cache node_modules
 
       - name: Deploy to AWS
         uses: serverless/github-action@v3.1
@@ -43,3 +43,5 @@ jobs:
           LOG_RETENTION_DAYS: 1
           TMDB_BASE_URL: https://api.themoviedb.org/3
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+          DOMAIN_NAME: movies.keyhole.institute
+          CERTIFICATE_NAME: keyhole.institute

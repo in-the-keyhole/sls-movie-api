@@ -29,14 +29,14 @@ functions:
 plugins:
   - serverless-webpack
   - serverless-offline
-  # - serverless-domain-manager
+  - serverless-domain-manager
 
 custom:
-  # customDomain:
-  #   domainName: ${env:DOMAIN_NAME}
-  #   certificateName: ${env:CERTIFICATE_NAME}
-  #   basePath: ''
-  #   createRoute53Record: true
+  customDomain:
+    domainName: ${env:DOMAIN_NAME}
+    certificateName: ${env:CERTIFICATE_NAME}
+    basePath: ''
+    createRoute53Record: true
   webpack:
     includeModules: true
     excludeFiles: src/apollo-server-azure-functions.ts
