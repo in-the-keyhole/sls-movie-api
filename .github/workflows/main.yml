@@ -34,7 +34,7 @@ jobs:
       - name: Get yarn cache directory path
         #run: yarn cache dir
         id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(/home/runner/.cache/yarn/v6)"      
+        run: echo "::set-output name=dir::$('/home/runner/.cache/yarn/v6')"      
         
       - uses: actions/cache@v3
         id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
