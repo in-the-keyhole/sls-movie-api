@@ -33,6 +33,10 @@ jobs:
 
       - name: Install Dependencies
         run: yarn
+        
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
 
 #      - name: Create Custom Domain
 #        uses: serverless/github-action@v3.1
