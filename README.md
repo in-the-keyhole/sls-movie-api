@@ -26,7 +26,6 @@ The remote container honors the following environment variables set in the .devc
 - AWS_ACCESS_KEY_ID
 - AWS_SECRET_ACCESS_KEY
 - AWS_REGION - (optional - defaults to us-east-1)
-- AWS_POSTGRESQL_HOST
 - DOMAIN_NAME - Used for AWS Custom Domain Name
 - CERTIFICATE_NAME - AWS Certificate Name
 - LOG_RETENTION_DAYS (optional - defaults to 1)
@@ -37,15 +36,12 @@ The remote container honors the following environment variables set in the .devc
 - AZURE_TENANT_ID
 - AZURE_CLIENT_ID
 - AZURE_CLIENT_SECRET
-- AZURE_POSTGRESQL_HOST
 - AZURE_LOCATION - (optional - defaults to Central US)
 
-##### Database variables
+##### Rest API (TMDB=The Movie Database)
 
-- DATABASE_NAME - (defaults and needs to be `postgresql` - init scripts don't create a different databsase currently)
-- DATABASE_USERNAME
-- DATABASE_PASSWORD
-- POSTGRESQL_PORT (defaults to 5432)
+- TMDB_BASE_URL
+- TMDB_API_KEY
 
 > _Note: Changes to variables in .env after the container is running will require the Remote Container to be restarted_
 
