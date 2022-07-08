@@ -11,6 +11,9 @@ export const typeDefs = gql`
     posterPathW185: String
     posterPathW342: String
     posterPathW780: String
+    backdropPathW300: String
+    backdropPathW780: String
+    backdropPathW1280: String
   }
 
   type Status {
