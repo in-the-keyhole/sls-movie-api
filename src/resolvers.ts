@@ -1,6 +1,6 @@
 import { nowPlaying, movieById } from "./resolver/movies";
 
-const posterURLPrefix = 'https://www.themoviedb.org/t/p/';
+const posterURLPrefix = 'https://image.tmdb.org/t/p/';
 
 export default {
   
@@ -28,5 +28,15 @@ export default {
     posterPathW780: (parent: any, args: any, context: any): String => {
       return `${posterURLPrefix}w780${parent.poster_path}`;
     },
+    backdropPathW300: (parent: any, args: any, context: any): String => {
+      return `${posterURLPrefix}w300${parent.backdrop_path}`;
+    },
+    backdropPathW780: (parent: any, args: any, context: any): String => {
+      return `${posterURLPrefix}w780${parent.backdrop_path}`;
+    },
+    backdropPathW1280: (parent: any, args: any, context: any): String => {
+      return `${posterURLPrefix}w1280${parent.backdrop_path}`;
+    },
+    
   },
 };
