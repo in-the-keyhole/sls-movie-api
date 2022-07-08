@@ -47,12 +47,12 @@ export interface Movie {
     id: string,
     title: string,
     overview: string,
-    posterPath: string
-    posterPathW92: string;
-    posterPathW154: string;
-    posterPathW185: string;
-    posterPathW342: string;
-    posterPathW780: string;
+    posterPath: string,
+    posterPathW92: string,
+    posterPathW154: string,
+    posterPathW185: string,
+    posterPathW342: string,
+    posterPathW780: string,
 }
 
 export const getMovie = async (id: String) => {
@@ -68,8 +68,8 @@ export const getMovie = async (id: String) => {
         id: rows[0].id,
         title: rows[0].title,
         overview: rows[0].overview,
-        posterPath: rows[0].posterpath
-	posterPathW92: rows[0].posterpath,
+        posterPath: rows[0].posterpath,
+	    posterPathW92: rows[0].posterpath,
     	posterPathW154: rows[0].posterpath,
     	posterPathW185: rows[0].posterpath,
     	posterPathW342: rows[0].posterpath,
