@@ -6,6 +6,11 @@ export const typeDefs = gql`
     title: String
     overview: String
     posterPath: String
+    posterPathW92: String
+    posterPathW154: String
+    posterPathW185: String
+    posterPathW342: String
+    posterPathW780: String
   }
 
   type Status {

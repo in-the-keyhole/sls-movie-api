@@ -23,4 +23,9 @@ export interface Movie {
     title: string,
     overview: string,
     posterPath: string
+    posterPathW92: string;
+    posterPathW154: string;
+    posterPathW185: string;
+    posterPathW342: string;
+    posterPathW780: string;
 }
