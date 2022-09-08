@@ -31,4 +31,5 @@ export interface Movie {
     backdropPathW300: string,
     backdropPathW780: string,
     backdropPathW1280: string,
+    voteAverage: number,
 }

@@ -14,6 +14,7 @@ export const typeDefs = gql`
     backdropPathW300: String
     backdropPathW780: String
     backdropPathW1280: String
+    voteAverage: Float
   }
 
   type Status {

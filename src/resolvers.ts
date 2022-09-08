@@ -3,7 +3,7 @@ import { nowPlaying, movieById } from "./resolver/movies";
 const imageURLPrefix = 'https://image.tmdb.org/t/p/';
 
 export default {
-  
+
 
   Query: {
     nowPlaying: nowPlaying,
@@ -37,6 +37,8 @@ export default {
     backdropPathW1280: (parent: any, args: any, context: any): String => {
       return `${imageURLPrefix}w1280${parent.backdrop_path}`;
     },
-    
+    voteAverage: (parent: any, args: any, context: any): String => {
+      return `${parent.vote_average}`;
+    },
   },
 };
