@@ -21,6 +21,8 @@ provider:
   environment:
     TMDB_BASE_URL: ${env:TMDB_BASE_URL}
     TMDB_API_KEY: ${env:TMDB_API_KEY}
+    APOLLO_INTROSPECTION: ${env:APOLLO_INTROSPECTION, true}
+    NODE_ENV: ${env:NODE_ENV, 'production'}
   apim:
     apis:
       - name: movies
