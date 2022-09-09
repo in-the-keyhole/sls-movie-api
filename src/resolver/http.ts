@@ -1,3 +1,4 @@
+import { ApolloError } from 'apollo-server';
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { environment } from '../environment';
 import { logger } from '../logger';
@@ -75,31 +76,29 @@ export class Http {
     // Handle global app errors
     // We can handle generic app errors depending on the status code
     private handleError(message: string, error: any) {
-        // logger.info('handleError -> %s, %o', message, error);
 
-        if (error) {
-            const { status } = error;
+        // if (error) {
+        //     const { status } = error;
 
-            switch (status) {
-                case StatusCode.InternalServerError: {
-                    // Handle InternalServerError
-                    break;
-                }
-                case StatusCode.Forbidden: {
-                    // Handle Forbidden
-                    break;
-                }
-                case StatusCode.Unauthorized: {
-                    // Handle Unauthorized
-                    break;
-                }
-                case StatusCode.TooManyRequests: {
-                    // Handle TooManyRequests
-                    break;
-                }
-            }
-        }
-
-        return Promise.reject(error || message);
+        //     switch (status) {
+        //         case StatusCode.InternalServerError: {
+        //             // Handle InternalServerError
+        //             break;
+        //         }
+        //         case StatusCode.Forbidden: {
+        //             // Handle Forbidden
+        //             break;
+        //         }
+        //         case StatusCode.Unauthorized: {
+        //             // Handle Unauthorized
+        //             break;
+        //         }
+        //         case StatusCode.TooManyRequests: {
+        //             // Handle TooManyRequests
+        //             break;
+        //         }
+        //     }
+        // }
+        throw new ApolloError(error.data.status_message, error.status);
     }
 }
