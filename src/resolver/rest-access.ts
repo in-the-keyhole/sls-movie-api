@@ -18,14 +18,18 @@ export const getMovie = async (id: String): Promise<Movie> => {
     return data;
 }
 
-export const getTrailer = async (id: String): Promise<Trailer> => {
+export const getTrailer = async (id: String): Promise<Trailer | undefined> => {
     const url_string: string = `/movie/${id}/videos`
     const { data } = await http.get(url_string);
     const firstOfficialTrailer = data.results.find((video: { official: any; type: string; }) => {
         return video.official && video.type === 'Trailer'
     });
-    const link = createTrailerLink(firstOfficialTrailer);
-    return { link: link, size: firstOfficialTrailer.size };
+    if (firstOfficialTrailer) {
+        const link = createTrailerLink(firstOfficialTrailer);
+        return { link: link, size: firstOfficialTrailer.size };
+    } else {
+        return undefined;
+    }
 }
 
 const createTrailerLink = (trailer: { site: string, key: string }): string => {
