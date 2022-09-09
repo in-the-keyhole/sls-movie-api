@@ -9,7 +9,7 @@ import resolvers from './resolvers';
 const server = new ApolloServer({
   resolvers,
   typeDefs,
-  introspection: true
+  introspection: environment.apollo.introspection,
 });
 
 export const graphqlHandler = server.createHandler();
