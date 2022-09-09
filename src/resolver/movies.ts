@@ -8,6 +8,6 @@ export const movieById = async (_: any, { id }: Movie) => {
     return await getMovie(id);
 }
 
-export const trailer = async (id: string): Promise<Trailer> => {
+export const trailer = async (id: string): Promise<Trailer | undefined> => {
     return await getTrailer(id);
 }

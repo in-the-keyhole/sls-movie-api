@@ -40,7 +40,7 @@ export default {
     voteAverage: (parent: any, args: any, context: any): String => {
       return `${parent.vote_average}`;
     },
-    trailer: async (parent: any, args: any, context: any): Promise<Trailer> => {
+    trailer: async (parent: any, args: any, context: any): Promise<Trailer | undefined> => {
       return await trailer(parent.id);
     }
   }
