@@ -15,6 +15,12 @@ export const typeDefs = gql`
     backdropPathW780: String
     backdropPathW1280: String
     voteAverage: Float
+    trailer: Trailer
+  }
+
+  type Trailer {
+    link: String,
+    size: Int
   }
 
   type Status {

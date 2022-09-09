@@ -1,9 +1,9 @@
-import { nowPlaying, movieById } from "./resolver/movies";
+import { nowPlaying, movieById, trailer } from "./resolver/movies";
+import { Trailer } from "./resolver/rest-access";
 
 const imageURLPrefix = 'https://image.tmdb.org/t/p/';
 
 export default {
-
 
   Query: {
     nowPlaying: nowPlaying,
@@ -40,5 +40,8 @@ export default {
     voteAverage: (parent: any, args: any, context: any): String => {
       return `${parent.vote_average}`;
     },
-  },
+    trailer: async (parent: any, args: any, context: any): Promise<Trailer> => {
+      return await trailer(parent.id);
+    }
+  }
 };
