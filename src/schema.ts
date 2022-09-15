@@ -16,10 +16,11 @@ export const typeDefs = gql`
     backdropPathW1280: String
     voteAverage: Float
     trailer: Trailer
+    credits: Credits
   }
 
   type Trailer {
-    link: String,
+    link: String
     size: Int
   }
 
@@ -34,5 +35,23 @@ export const typeDefs = gql`
   type Query {
     nowPlaying: [Movie]
     movie(id: ID!): Movie
+  }
+
+  type Credits {
+    id: ID!
+    cast: [Cast]
+    crew: [Crew]
+  }
+
+  type Cast {
+    id: ID!
+    name: String
+    character: String
+  }
+
+  type Crew {
+    id: ID!
+    name: String
+    job: String
   }
 `;

@@ -1,13 +1,12 @@
-import { nowPlaying, movieById, trailer } from "./resolver/movies";
-import { Trailer } from "./resolver/rest-access";
+import { nowPlaying, movieById, trailer, credits } from './resolver/movies';
+import { Credits, Trailer } from './resolver/rest-access';
 
 const imageURLPrefix = 'https://image.tmdb.org/t/p/';
 
 export default {
-
   Query: {
     nowPlaying: nowPlaying,
-    movie: movieById
+    movie: movieById,
   },
   Movie: {
     posterPath: (parent: any, args: any, context: any): String => {
@@ -40,8 +39,20 @@ export default {
     voteAverage: (parent: any, args: any, context: any): String => {
       return `${parent.vote_average}`;
     },
-    trailer: async (parent: any, args: any, context: any): Promise<Trailer | undefined> => {
+    trailer: async (
+      parent: any,
+      args: any,
+      context: any
+    ): Promise<Trailer | undefined> => {
       return await trailer(parent.id);
-    }
-  }
+    },
+
+    credits: async (
+      parent: any,
+      args: any,
+      context: any
+    ): Promise<Credits | undefined> => {
+      return await credits(parent.id);
+    },
+  },
 };
