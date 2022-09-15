@@ -93,10 +93,12 @@ export interface Cast {
   id: number;
   name: string;
   character: string;
+  profilePath: string;
 }
 
 export interface Crew {
   id: number;
   name: string;
   job: string;
+  profilePath: string;
 }

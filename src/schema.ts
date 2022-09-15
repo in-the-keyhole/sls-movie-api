@@ -47,11 +47,13 @@ export const typeDefs = gql`
     id: ID!
     name: String
     character: String
+    profilePath: String
   }
 
   type Crew {
     id: ID!
     name: String
     job: String
+    profilePath: String
   }
 `;

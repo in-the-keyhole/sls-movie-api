@@ -55,4 +55,9 @@ export default {
       return await credits(parent.id);
     },
   },
+  Cast: {
+    profilePath: (parent: any, args: any, context: any): String => {
+      return `${imageURLPrefix}w92${parent.profile_path}`;
+    },
+  },
 };
