@@ -2,10 +2,12 @@ import {
   getMovies,
   getMovie,
   Movie,
+  MovieSummary,
   getTrailer,
   Trailer,
   Credits,
   getCredits,
+  //getGenres,
 } from './rest-access';
 
 export const nowPlaying = async (_: any) => {
@@ -27,3 +29,7 @@ export const credits = async (
 ): Promise<Credits | undefined> => {
   return await getCredits(movieId);
 };
+/*
+export const genres = async (movieId: string): Promise<String | undefined> => {
+  return await getGenres(movieId);
+};*/

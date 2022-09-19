@@ -1,4 +1,10 @@
-import { nowPlaying, movieById, trailer, credits } from './resolver/movies';
+import {
+  nowPlaying,
+  movieById,
+  trailer,
+  credits,
+  //genres,
+} from './resolver/movies';
 import { Credits, Trailer } from './resolver/rest-access';
 
 const imageURLPrefix = 'https://image.tmdb.org/t/p/';
@@ -39,6 +45,10 @@ export default {
     voteAverage: (parent: any, args: any, context: any): String => {
       return `${parent.vote_average}`;
     },
+    tagline: (parent: any, args: any, context: any): String => {
+      return `${parent.tagline}`;
+    },
+
     trailer: async (
       parent: any,
       args: any,
@@ -54,6 +64,13 @@ export default {
     ): Promise<Credits | undefined> => {
       return await credits(parent.id);
     },
+    /*genres: async (
+      parent: any,
+      args: any,
+      context: any
+    ): Promise<String | undefined> => {
+      return await genres(parent.id);
+    },*/
   },
   Cast: {
     profilePath: (parent: any, args: any, context: any): String => {

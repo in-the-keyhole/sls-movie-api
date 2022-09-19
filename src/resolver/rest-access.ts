@@ -6,7 +6,7 @@ const tmdbApiLogger = logger.child({ api: 'tmdb' });
 
 const http = new Http(environment.tmdb.url);
 
-export const getMovies = async (): Promise<Movie[]> => {
+export const getMovies = async (): Promise<MovieSummary[]> => {
   const url_string: string = '/movie/now_playing';
   const { data } = await http.get(url_string);
   return data.results;
@@ -41,6 +41,14 @@ export const getCredits = async (
   const { data } = await http.get(url_string);
   return data;
 };
+/*
+export const getGenres = async (
+  movieId: String
+): Promise<String | undefined> => {
+  const url_string: string = `/movie/${movieId}/genres`;
+  const { data } = await http.get(url_string);
+  return data;
+};*/
 
 const createTrailerLink = (trailer: { site: string; key: string }): string => {
   let siteUrlPrefix = '';
@@ -76,6 +84,28 @@ export interface Movie {
   voteAverage: number;
   trailer: Trailer;
   credits: Credits;
+  tagline: string;
+  runtime: number;
+  //genres: string[];
+}
+
+export interface MovieSummary {
+  id: string;
+  title: string;
+  overview: string;
+  posterPath: string;
+  posterPathW92: string;
+  posterPathW154: string;
+  posterPathW185: string;
+  posterPathW342: string;
+  posterPathW780: string;
+  backdropPathW300: string;
+  backdropPathW780: string;
+  backdropPathW1280: string;
+  voteAverage: number;
+  trailer: Trailer;
+  credits: Credits;
+  movie: Movie;
 }
 
 export interface Trailer {

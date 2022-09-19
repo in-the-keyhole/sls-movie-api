@@ -17,6 +17,27 @@ export const typeDefs = gql`
     voteAverage: Float
     trailer: Trailer
     credits: Credits
+    tagline: String
+    runtime: Float
+  }
+
+  type MovieSummary {
+    id: Int
+    title: String
+    overview: String
+    posterPath: String
+    posterPathW92: String
+    posterPathW154: String
+    posterPathW185: String
+    posterPathW342: String
+    posterPathW780: String
+    backdropPathW300: String
+    backdropPathW780: String
+    backdropPathW1280: String
+    voteAverage: Float
+    trailer: Trailer
+    credits: Credits
+    details: Movie
   }
 
   type Trailer {
@@ -33,7 +54,7 @@ export const typeDefs = gql`
   }
 
   type Query {
-    nowPlaying: [Movie]
+    nowPlaying: [MovieSummary]
     movie(id: ID!): Movie
   }
 
