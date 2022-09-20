@@ -5,7 +5,7 @@ import {
   credits,
   genres,
 } from './resolver/movies';
-import { Credits, Trailer } from './resolver/rest-access';
+import { Credits, Movie, Trailer } from './resolver/rest-access';
 
 const imageURLPrefix = 'https://image.tmdb.org/t/p/';
 
@@ -77,17 +77,16 @@ export default {
         return company.iso_3166_1;
       });
     },
-    /*productionCompanies: async (
-      parent: any,
-      args: any,
-      context: any
-    ): Promise<String | undefined> => {
-      return await productionCompanies(parent.iso_3166_1);
-    },*/
   },
   Cast: {
     profilePath: (parent: any, args: any, context: any): String => {
       return `${imageURLPrefix}w92${parent.profile_path}`;
+    },
+  },
+  MovieSummary: {
+    details: (parent: any, args: any, context: any): Promise<Movie> => {
+      //console.log('Testing: ', parent.id);
+      return movieById(undefined, parent);
     },
   },
 };
