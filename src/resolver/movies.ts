@@ -7,8 +7,8 @@ import {
   Trailer,
   Credits,
   getCredits,
-  //getGenres,
-  //getProductionCompanies
+  getGenres,
+  getProductionCountries,
 } from './rest-access';
 
 export const nowPlaying = async (_: any) => {
@@ -30,11 +30,13 @@ export const credits = async (
 ): Promise<Credits | undefined> => {
   return await getCredits(movieId);
 };
-/*
+
 export const genres = async (movieId: string): Promise<String | undefined> => {
   return await getGenres(movieId);
-};*/
-/*
-export const productionCompanies = async (movieId: string): Promise<String | undefined> => {
-  return await getProductionCompanies(movieId);
-};*/
+};
+
+export const productionCountries = async (
+  movieId: string
+): Promise<String | undefined> => {
+  return await getProductionCountries(movieId);
+};

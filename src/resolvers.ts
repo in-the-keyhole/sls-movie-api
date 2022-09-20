@@ -3,7 +3,7 @@ import {
   movieById,
   trailer,
   credits,
-  //genres,
+  genres,
 } from './resolver/movies';
 import { Credits, Trailer } from './resolver/rest-access';
 
@@ -67,19 +67,22 @@ export default {
     ): Promise<Credits | undefined> => {
       return await credits(parent.id);
     },
-    /*genres: async (
-      parent: any,
-      args: any,
-      context: any
-    ): Promise<String | undefined> => {
-      return await genres(parent.id);
-    },*/
+    genres: (parent: any, args: any, context: any): String[] => {
+      return parent.genres.map((genre: { name: any }) => {
+        return genre.name;
+      });
+    },
+    productionCountries: (parent: any, args: any, context: any): String[] => {
+      return parent.production_countries.map((company: { iso_3166_1: any }) => {
+        return company.iso_3166_1;
+      });
+    },
     /*productionCompanies: async (
       parent: any,
       args: any,
       context: any
     ): Promise<String | undefined> => {
-      return await productionCompanies(parent.id);
+      return await productionCompanies(parent.iso_3166_1);
     },*/
   },
   Cast: {

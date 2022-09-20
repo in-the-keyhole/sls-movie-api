@@ -41,14 +41,22 @@ export const getCredits = async (
   const { data } = await http.get(url_string);
   return data;
 };
-/*
+
 export const getGenres = async (
   movieId: String
 ): Promise<String | undefined> => {
-  const url_string: string = `/movie/${movieId}/genres`;
+  const url_string: string = `/movie/${movieId}.genres`;
   const { data } = await http.get(url_string);
   return data;
-};*/
+};
+
+export const getProductionCountries = async (
+  movieId: String
+): Promise<String | undefined> => {
+  const url_string: string = `/movie/${movieId}.productionCountries`;
+  const { data } = await http.get(url_string);
+  return data;
+};
 
 const createTrailerLink = (trailer: { site: string; key: string }): string => {
   let siteUrlPrefix = '';
@@ -87,8 +95,8 @@ export interface Movie {
   tagline: string;
   runtime: number;
   releaseDate: string;
-  //genres: string[];
-  //productionCompanies: string[];
+  genres: string[];
+  productionCountries: string[];
 }
 
 export interface MovieSummary {

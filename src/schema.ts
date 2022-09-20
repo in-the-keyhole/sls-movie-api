@@ -20,6 +20,8 @@ export const typeDefs = gql`
     tagline: String
     runtime: Float
     releaseDate: String
+    genres: [String]
+    productionCountries: [String]
   }
 
   type MovieSummary {
