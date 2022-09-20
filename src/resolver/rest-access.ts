@@ -42,22 +42,6 @@ export const getCredits = async (
   return data;
 };
 
-export const getGenres = async (
-  movieId: String
-): Promise<String | undefined> => {
-  const url_string: string = `/movie/${movieId}.genres`;
-  const { data } = await http.get(url_string);
-  return data;
-};
-
-export const getProductionCountries = async (
-  movieId: String
-): Promise<String | undefined> => {
-  const url_string: string = `/movie/${movieId}.productionCountries`;
-  const { data } = await http.get(url_string);
-  return data;
-};
-
 const createTrailerLink = (trailer: { site: string; key: string }): string => {
   let siteUrlPrefix = '';
   switch (trailer.site) {

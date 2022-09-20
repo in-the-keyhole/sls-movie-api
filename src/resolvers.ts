@@ -1,11 +1,5 @@
-import {
-  nowPlaying,
-  movieById,
-  trailer,
-  credits,
-  genres,
-} from './resolver/movies';
-import { Credits, Movie, Trailer } from './resolver/rest-access';
+import { nowPlaying, movieById, trailer, credits } from './resolver/movies';
+import { Credits, getMovie, Movie, Trailer } from './resolver/rest-access';
 
 const imageURLPrefix = 'https://image.tmdb.org/t/p/';
 
@@ -45,9 +39,6 @@ export default {
     voteAverage: (parent: any, args: any, context: any): String => {
       return `${parent.vote_average}`;
     },
-    tagline: (parent: any, args: any, context: any): String => {
-      return `${parent.tagline}`;
-    },
     releaseDate: (parent: any, args: any, context: any): String => {
       return `${parent.release_date}`;
     },
@@ -85,8 +76,7 @@ export default {
   },
   MovieSummary: {
     details: (parent: any, args: any, context: any): Promise<Movie> => {
-      //console.log('Testing: ', parent.id);
-      return movieById(undefined, parent);
+      return getMovie(parent.id);
     },
   },
 };
