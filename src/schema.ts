@@ -19,6 +19,7 @@ export const typeDefs = gql`
     credits: Credits
     tagline: String
     runtime: Float
+    releaseDate: String
   }
 
   type MovieSummary {

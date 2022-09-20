@@ -86,7 +86,9 @@ export interface Movie {
   credits: Credits;
   tagline: string;
   runtime: number;
+  releaseDate: string;
   //genres: string[];
+  //productionCompanies: string[];
 }
 
 export interface MovieSummary {

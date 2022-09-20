@@ -48,6 +48,9 @@ export default {
     tagline: (parent: any, args: any, context: any): String => {
       return `${parent.tagline}`;
     },
+    releaseDate: (parent: any, args: any, context: any): String => {
+      return `${parent.release_date}`;
+    },
 
     trailer: async (
       parent: any,
@@ -70,6 +73,13 @@ export default {
       context: any
     ): Promise<String | undefined> => {
       return await genres(parent.id);
+    },*/
+    /*productionCompanies: async (
+      parent: any,
+      args: any,
+      context: any
+    ): Promise<String | undefined> => {
+      return await productionCompanies(parent.id);
     },*/
   },
   Cast: {

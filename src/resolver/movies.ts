@@ -8,6 +8,7 @@ import {
   Credits,
   getCredits,
   //getGenres,
+  //getProductionCompanies
 } from './rest-access';
 
 export const nowPlaying = async (_: any) => {
@@ -32,4 +33,8 @@ export const credits = async (
 /*
 export const genres = async (movieId: string): Promise<String | undefined> => {
   return await getGenres(movieId);
+};*/
+/*
+export const productionCompanies = async (movieId: string): Promise<String | undefined> => {
+  return await getProductionCompanies(movieId);
 };*/
