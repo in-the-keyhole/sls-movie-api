@@ -19,7 +19,7 @@ export default {
       return `${parent.vote_average}`;
     },
     releaseDate: (parent: any, args: any, context: any): String => {
-      return `${parent.release_date}`;
+      return parent.release_date;
     },
     trailer: async (
       parent: any,
@@ -119,5 +119,8 @@ export default {
         backdropPath: parent.backdrop_path,
       };
     },
+    releaseDate: (parent: any, args: any, context: any): String => {
+      return parent.release_date;
+    }
   },
 };

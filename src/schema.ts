@@ -19,6 +19,8 @@ export const typeDefs = gql`
   type MovieSummary {
     id: Int
     title: String
+    overview: String
+    releaseDate: String
     images: Images
     voteAverage: Float
     trailer: Trailer
