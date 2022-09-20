@@ -64,15 +64,7 @@ export interface Movie {
   id: string;
   title: string;
   overview: string;
-  posterPath: string;
-  posterPathW92: string;
-  posterPathW154: string;
-  posterPathW185: string;
-  posterPathW342: string;
-  posterPathW780: string;
-  backdropPathW300: string;
-  backdropPathW780: string;
-  backdropPathW1280: string;
+  images: Images;
   voteAverage: number;
   trailer: Trailer;
   credits: Credits;
@@ -87,15 +79,7 @@ export interface MovieSummary {
   id: string;
   title: string;
   overview: string;
-  posterPath: string;
-  posterPathW92: string;
-  posterPathW154: string;
-  posterPathW185: string;
-  posterPathW342: string;
-  posterPathW780: string;
-  backdropPathW300: string;
-  backdropPathW780: string;
-  backdropPathW1280: string;
+  images: Images;
   voteAverage: number;
   trailer: Trailer;
   credits: Credits;
@@ -125,4 +109,9 @@ export interface Crew {
   name: string;
   job: string;
   profilePath: string;
+}
+
+export interface Images {
+  posterPath: string;
+  backdropPath: string;
 }

@@ -1,5 +1,11 @@
 import { nowPlaying, movieById, trailer, credits } from './resolver/movies';
-import { Credits, getMovie, Movie, Trailer } from './resolver/rest-access';
+import {
+  Credits,
+  getMovie,
+  Movie,
+  Images,
+  Trailer,
+} from './resolver/rest-access';
 
 const imageURLPrefix = 'https://image.tmdb.org/t/p/';
 
@@ -9,40 +15,12 @@ export default {
     movie: movieById,
   },
   Movie: {
-    posterPath: (parent: any, args: any, context: any): String => {
-      return `${imageURLPrefix}w500${parent.poster_path}`;
-    },
-    posterPathW92: (parent: any, args: any, context: any): String => {
-      return `${imageURLPrefix}w92${parent.poster_path}`;
-    },
-    posterPathW154: (parent: any, args: any, context: any): String => {
-      return `${imageURLPrefix}w154${parent.poster_path}`;
-    },
-    posterPathW185: (parent: any, args: any, context: any): String => {
-      return `${imageURLPrefix}w185${parent.poster_path}`;
-    },
-    posterPathW342: (parent: any, args: any, context: any): String => {
-      return `${imageURLPrefix}w342${parent.poster_path}`;
-    },
-    posterPathW780: (parent: any, args: any, context: any): String => {
-      return `${imageURLPrefix}w780${parent.poster_path}`;
-    },
-    backdropPathW300: (parent: any, args: any, context: any): String => {
-      return `${imageURLPrefix}w300${parent.backdrop_path}`;
-    },
-    backdropPathW780: (parent: any, args: any, context: any): String => {
-      return `${imageURLPrefix}w780${parent.backdrop_path}`;
-    },
-    backdropPathW1280: (parent: any, args: any, context: any): String => {
-      return `${imageURLPrefix}w1280${parent.backdrop_path}`;
-    },
     voteAverage: (parent: any, args: any, context: any): String => {
       return `${parent.vote_average}`;
     },
     releaseDate: (parent: any, args: any, context: any): String => {
       return `${parent.release_date}`;
     },
-
     trailer: async (
       parent: any,
       args: any,
@@ -57,6 +35,12 @@ export default {
       context: any
     ): Promise<Credits | undefined> => {
       return await credits(parent.id);
+    },
+    images: (parent: any, args: any, context: any): Images => {
+      return {
+        posterPath: parent.poster_path,
+        backdropPath: parent.backdrop_path,
+      };
     },
     genres: (parent: any, args: any, context: any): String[] => {
       return parent.genres.map((genre: { name: any }) => {
@@ -77,36 +61,38 @@ export default {
       return `${imageURLPrefix}w92${parent.profile_path}`;
     },
   },
+  Images: {
+    posterPath: (parent: any, args: any, context: any): String => {
+      return `${imageURLPrefix}w500${parent.posterPath}`;
+    },
+    posterPathW92: (parent: any, args: any, context: any): String => {
+      return `${imageURLPrefix}w92${parent.posterPath}`;
+    },
+    posterPathW154: (parent: any, args: any, context: any): String => {
+      return `${imageURLPrefix}w154${parent.posterPath}`;
+    },
+    posterPathW185: (parent: any, args: any, context: any): String => {
+      return `${imageURLPrefix}w185${parent.posterPath}`;
+    },
+    posterPathW342: (parent: any, args: any, context: any): String => {
+      return `${imageURLPrefix}w342${parent.posterPath}`;
+    },
+    posterPathW780: (parent: any, args: any, context: any): String => {
+      return `${imageURLPrefix}w780${parent.posterPath}`;
+    },
+    backdropPathW300: (parent: any, args: any, context: any): String => {
+      return `${imageURLPrefix}w300${parent.backdropPath}`;
+    },
+    backdropPathW780: (parent: any, args: any, context: any): String => {
+      return `${imageURLPrefix}w780${parent.backdropPath}`;
+    },
+    backdropPathW1280: (parent: any, args: any, context: any): String => {
+      return `${imageURLPrefix}w1280${parent.backdropPath}`;
+    },
+  },
   MovieSummary: {
     details: (parent: any, args: any, context: any): Promise<Movie> => {
       return getMovie(parent.id);
-    },
-    posterPath: (parent: any, args: any, context: any): String => {
-      return `${imageURLPrefix}w500${parent.poster_path}`;
-    },
-    posterPathW92: (parent: any, args: any, context: any): String => {
-      return `${imageURLPrefix}w92${parent.poster_path}`;
-    },
-    posterPathW154: (parent: any, args: any, context: any): String => {
-      return `${imageURLPrefix}w154${parent.poster_path}`;
-    },
-    posterPathW185: (parent: any, args: any, context: any): String => {
-      return `${imageURLPrefix}w185${parent.poster_path}`;
-    },
-    posterPathW342: (parent: any, args: any, context: any): String => {
-      return `${imageURLPrefix}w342${parent.poster_path}`;
-    },
-    posterPathW780: (parent: any, args: any, context: any): String => {
-      return `${imageURLPrefix}w780${parent.poster_path}`;
-    },
-    backdropPathW300: (parent: any, args: any, context: any): String => {
-      return `${imageURLPrefix}w300${parent.backdrop_path}`;
-    },
-    backdropPathW780: (parent: any, args: any, context: any): String => {
-      return `${imageURLPrefix}w780${parent.backdrop_path}`;
-    },
-    backdropPathW1280: (parent: any, args: any, context: any): String => {
-      return `${imageURLPrefix}w1280${parent.backdrop_path}`;
     },
     voteAverage: (parent: any, args: any, context: any): String => {
       return `${parent.vote_average}`;
@@ -125,6 +111,13 @@ export default {
       context: any
     ): Promise<Credits | undefined> => {
       return await credits(parent.id);
+    },
+
+    images: (parent: any, args: any, context: any): Images => {
+      return {
+        posterPath: parent.poster_path,
+        backdropPath: parent.backdrop_path,
+      };
     },
   },
 };

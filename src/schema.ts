@@ -5,15 +5,7 @@ export const typeDefs = gql`
     id: Int
     title: String
     overview: String
-    posterPath: String
-    posterPathW92: String
-    posterPathW154: String
-    posterPathW185: String
-    posterPathW342: String
-    posterPathW780: String
-    backdropPathW300: String
-    backdropPathW780: String
-    backdropPathW1280: String
+    images: Images
     voteAverage: Float
     trailer: Trailer
     credits: Credits
@@ -27,16 +19,7 @@ export const typeDefs = gql`
   type MovieSummary {
     id: Int
     title: String
-    overview: String
-    posterPath: String
-    posterPathW92: String
-    posterPathW154: String
-    posterPathW185: String
-    posterPathW342: String
-    posterPathW780: String
-    backdropPathW300: String
-    backdropPathW780: String
-    backdropPathW1280: String
+    images: Images
     voteAverage: Float
     trailer: Trailer
     credits: Credits
@@ -79,5 +62,17 @@ export const typeDefs = gql`
     name: String
     job: String
     profilePath: String
+  }
+
+  type Images {
+    posterPath: String
+    posterPathW92: String
+    posterPathW154: String
+    posterPathW185: String
+    posterPathW342: String
+    posterPathW780: String
+    backdropPathW300: String
+    backdropPathW780: String
+    backdropPathW1280: String
   }
 `;
